@@ -86,8 +86,7 @@ const stages = [
   *{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
   @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation:none!important;transition:none!important;} }
-  html{ overflow-x:hidden; }
-  body{ margin:0; background:var(--paper); color:var(--ink); overflow-x:hidden;
+  body{ margin:0; background:var(--paper); color:var(--ink); overflow-x:clip;
     font-family:"Archivo",system-ui,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased; }
   .wrap{ max-width:880px; margin:0 auto; padding:0 26px; }
   img{ display:block; }
