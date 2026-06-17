@@ -126,13 +126,11 @@ const stages = [
   h2{ font-family:"Archivo"; font-weight:800; font-size:clamp(26px,6vw,40px); line-height:1.05; margin:14px 0 10px; letter-spacing:-.01em; }
   .note{ margin:0 0 26px; font-size:16px; color:#403c34; max-width:54ch; }
 
-  .bleed{ width:100%; }
+  .bleed{ width:100vw; position:relative; left:50%; margin-left:-50vw; }
   .feature{ margin:8px 0; }
-  .feature .ph-btn{ display:block; width:100%; }
-  .feature .ph-btn img{ width:100%; height:56vw; max-height:580px; object-fit:cover; object-position:center 20%; border-radius:2px; }
+  .feature .ph-btn img{ width:100%; height:min(90vh,940px); object-fit:cover; object-position:left center; border-radius:0; }
   @media(min-width:640px){
-    .bleed{ width:100vw; position:relative; left:50%; margin-left:-50vw; }
-    .feature .ph-btn img{ height:min(90vh,940px); max-height:none; border-radius:0; }
+    .feature .ph-btn img{ object-position:center center; }
   }
   .strip{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:8px; }
   .single .ph-btn img{ width:100%; aspect-ratio:3/4; object-fit:cover; }
