@@ -86,6 +86,7 @@ const stages = [
   *{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
   @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation:none!important;transition:none!important;} }
+  html{ overflow-x:hidden; }
   body{ margin:0; background:var(--paper); color:var(--ink); overflow-x:hidden;
     font-family:"Archivo",system-ui,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased; }
   .wrap{ max-width:880px; margin:0 auto; padding:0 26px; }
@@ -126,11 +127,12 @@ const stages = [
   h2{ font-family:"Archivo"; font-weight:800; font-size:clamp(26px,6vw,40px); line-height:1.05; margin:14px 0 10px; letter-spacing:-.01em; }
   .note{ margin:0 0 26px; font-size:16px; color:#403c34; max-width:54ch; }
 
-  .bleed{ width:100vw; position:relative; left:50%; margin-left:-50vw; }
+  .bleed{ width:100%; }
   .feature{ margin:8px 0; }
-  .feature .ph-btn img{ width:100%; height:min(90vh,940px); object-fit:cover; object-position:left center; border-radius:0; }
+  .feature .ph-btn img{ width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top; border-radius:2px; }
   @media(min-width:640px){
-    .feature .ph-btn img{ object-position:center center; }
+    .bleed{ width:100vw; position:relative; left:50%; margin-left:-50vw; overflow:hidden; }
+    .feature .ph-btn img{ aspect-ratio:unset; height:min(90vh,940px); object-position:center center; border-radius:0; }
   }
   .strip{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:8px; }
   .single .ph-btn img{ width:100%; aspect-ratio:3/4; object-fit:cover; }
