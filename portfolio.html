@@ -86,7 +86,7 @@ const stages = [
   *{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
   @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation:none!important;transition:none!important;} }
-  body{ margin:0; background:var(--paper); color:var(--ink); overflow-x:hidden;
+  body{ margin:0; background:var(--paper); color:var(--ink);
     font-family:"Archivo",system-ui,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased; }
   .wrap{ max-width:880px; margin:0 auto; padding:0 26px; }
   img{ display:block; }
@@ -133,7 +133,6 @@ const stages = [
     .bleed{ width:100vw; position:relative; left:50%; margin-left:-50vw; }
     .feature .ph-btn img{ aspect-ratio:unset; height:min(90vh,940px); object-position:center; border-radius:0; }
   }
-  .strip{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:8px; }
   .single .ph-btn img{ width:100%; aspect-ratio:3/4; object-fit:cover; }
   .diptych{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
   .diptych .ph-btn img,.strip .ph-btn img{ width:100%; aspect-ratio:4/5; object-fit:cover; }
@@ -158,7 +157,7 @@ const stages = [
   .lb-x{ position:absolute; top:18px; right:22px; width:44px; height:44px; border-radius:50%; border:0; background:rgba(255,255,255,.12); color:#fff; font-size:24px; cursor:pointer; }
 </style>
 
-<div id="cover"></div>
+<div id="cover" style="overflow:hidden"></div>
 <div class="wrap">
   <p class="intro" id="intro"></p>
   <section class="contents"><div class="c-lbl">Содержание</div><ol id="contents"></ol></section>
