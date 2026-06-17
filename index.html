@@ -1,0 +1,229 @@
+<!--
+  ════════════════════════════════════════════════════════════════
+  АЛЁНА — ПОРТФОЛИО · журнальная вёрстка (агентский стиль)
+  ════════════════════════════════════════════════════════════════
+  Фото и видео — из папки foto/. Имена — в блоке данных ниже.
+  cover — кадр обложки.  coverPos — кадрирование (больше % = лицо выше).
+  Клик по фото — увеличение. Трогаешь только блок «НАЧАЛО/КОНЕЦ ДАННЫХ».
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Алёна — портфолио</title>
+
+<script>
+/* ══════════════ НАЧАЛО ДАННЫХ ══════════════ */
+
+const profile = {
+  name:    "Алёна",
+  tagline: "первый год на подиуме",
+  intro:   "От первого волнительного показа до подиума ЦУМа — её первый год в профессии.",
+  period:  "Сентябрь 2025 — июнь 2026",
+  stats:   "Рост 138 · 63–52–70",
+  school:  "Liberty · Тюмень",
+  cover:   "foto/2026-05-16.jpg",
+  coverPos:"center 16%"     // обложка: БОЛЬШЕ % = лицо выше (дальше от имени), меньше = ниже. Дёргай по 4–5%.
+};
+
+const stages = [
+
+  { n:"01", date:"4 октября 2025", kind:"показ · Неделя моды", milestone:true,
+    title:"Неделя моды «Сибирь»",
+    note:"Первый показ — меньше чем через месяц после начала занятий. Очень волнительно, и всё равно вышла на подиум.",
+    photos:["foto/2025-10-04.jpg","foto/2025-10-04-2.jpg"] },
+
+  { n:"02", date:"28 октября 2025", kind:"авторская съёмка", author:true,
+    title:"Свои образы",
+    note:"Образы, аксессуары и позы Алёна придумала и подобрала сама — от и до.",
+    photos:["foto/2025-10-28.jpg","foto/2025-10-28-2.jpg","foto/2025-10-28-3.jpg","foto/2025-10-28-4.jpg"] },
+
+  { n:"03", date:"3 ноября 2025", kind:"агентство · тесты",
+    title:"Первая съёмка в агентстве",
+    note:"Первые тестовые кадры.",
+    photos:["foto/2025-11-testy.jpg","foto/2025-11-testy-2.jpg"] },
+
+  { n:"04", date:"7 декабря 2025", kind:"показ", milestone:true,
+    title:"Предновогодний отчётный показ",
+    note:"Первый отчётный показ — и первая настоящая проверка. Волнительно, справилась.",
+    photos:["foto/2025-12-07.jpg"] },
+
+  { n:"05", date:"17 января 2026", kind:"съёмка · beauty",
+    title:"Бьюти-съёмка",
+    note:"",
+    photos:["foto/2026-01-17.jpg"] },
+
+  { n:"06", date:"14 марта 2026", kind:"съёмка · sport-chic",
+    title:"Спорт-шик",
+    note:"",
+    photos:["foto/2026-03-14.jpg"] },
+
+  { n:"07", date:"2 мая 2026", kind:"видеосессия",
+    title:"Первое видео",
+    note:"Движение, подача, работа на камеру. Уже уверенная модель, справилась.",
+    video:{ src:"foto/2026-05-02.mp4", poster:"foto/2026-05-02-poster.jpg" } },
+
+  { n:"08", date:"16 мая 2026", kind:"показ · ЦУМ", milestone:true,
+    title:"Показ в ЦУМе",
+    note:"",
+    photos:["foto/2026-05-16.jpg"] },
+
+  { n:"09", date:"14 июня 2026", kind:"годовой показ", milestone:true, pending:true,
+    title:"Отчётный годовой показ",
+    note:"Итог первого года. Фото добавим, как появятся.",
+    photos:["foto/2026-06-14.jpg"] }
+
+];
+
+/* ══════════════ КОНЕЦ ДАННЫХ ══════════════ */
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+
+<style>
+  :root{ --paper:#FBFAF7; --ink:#191712; --soft:#8B857A; --faint:#CFC9BD; --line:#E7E2D8; }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation:none!important;transition:none!important;} }
+  body{ margin:0; background:var(--paper); color:var(--ink); overflow-x:hidden;
+    font-family:"Archivo",system-ui,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:880px; margin:0 auto; padding:0 26px; }
+  img{ display:block; }
+
+  .cover{ position:relative; width:100vw; left:50%; margin-left:-50vw; height:min(92vh,860px);
+    background:#15130f; overflow:hidden; display:flex; align-items:flex-end; }
+  .cover-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.94; }
+  .cover-grad{ position:absolute; inset:0; background:linear-gradient(to top, rgba(10,9,7,.9) 0%, rgba(10,9,7,.55) 22%, rgba(10,9,7,.08) 50%, rgba(10,9,7,0) 72%); }
+  .cover.no-cover{ background:var(--paper); align-items:center; }
+  .cover.no-cover .cover-grad{ display:none; }
+  .cover.no-cover .cover-inner{ color:var(--ink); }
+  .cover.no-cover .c-eyebrow,.cover.no-cover .cdata{ color:var(--soft); }
+  .cover-inner{ position:relative; z-index:2; width:100%; max-width:880px; margin:0 auto; padding:0 26px 52px; color:#fff; }
+  .c-eyebrow{ font-size:11px; letter-spacing:.34em; text-transform:uppercase; font-weight:600; opacity:.85; }
+  .cover h1{ font-family:"Archivo"; font-weight:900; font-size:clamp(60px,16vw,150px); line-height:.86; letter-spacing:-.01em; text-transform:uppercase; margin:14px 0 0; }
+  .cover .tag{ font-family:"Fraunces",serif; font-style:italic; font-weight:400; font-size:clamp(19px,4.6vw,28px); margin-top:10px; }
+  .cdata{ margin-top:26px; padding-top:16px; border-top:1px solid rgba(255,255,255,.28); display:flex; flex-wrap:wrap; gap:6px 26px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; opacity:.92; }
+  .cover.no-cover .cdata{ border-top-color:var(--ink); }
+
+  .intro{ font-family:"Fraunces",serif; font-style:italic; font-size:clamp(22px,4vw,32px); line-height:1.3; margin:64px 0 12px; max-width:20ch; }
+  .contents{ padding:18px 0 8px; }
+  .c-lbl{ font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--soft); font-weight:600; margin-bottom:8px; }
+  .contents ol{ list-style:none; margin:0; padding:0; }
+  .contents a{ display:flex; align-items:baseline; gap:16px; padding:13px 0; border-top:1px solid var(--line); color:var(--ink); text-decoration:none; }
+  .contents a:hover .c-t{ text-decoration:underline; }
+  .c-n{ font-weight:800; font-size:13px; color:var(--soft); width:24px; flex:none; }
+  .c-t{ flex:1; font-weight:600; font-size:16px; }
+  .c-d{ font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); }
+
+  .stage{ padding:70px 0 0; }
+  .s-num{ font-family:"Archivo"; font-weight:900; font-size:clamp(72px,18vw,150px); line-height:.8; color:var(--faint); letter-spacing:-.03em; }
+  .stage.milestone .s-num{ color:var(--ink); }
+  .s-meta{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-top:6px; }
+  .kind{ font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--ink); font-weight:700; }
+  .date{ font-size:12px; letter-spacing:.06em; color:var(--soft); font-weight:500; }
+  .tagpill{ font-size:9px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; color:var(--soft); border:1px solid var(--line); border-radius:99px; padding:4px 10px; }
+  h2{ font-family:"Archivo"; font-weight:800; font-size:clamp(26px,6vw,40px); line-height:1.05; margin:14px 0 10px; letter-spacing:-.01em; }
+  .note{ margin:0 0 26px; font-size:16px; color:#403c34; max-width:54ch; }
+
+  .bleed{ width:100vw; position:relative; left:50%; margin-left:-50vw; }
+  .feature{ margin:8px 0; }
+  .feature .ph-btn img{ width:100%; height:min(90vh,940px); object-fit:cover; border-radius:0; }
+  .strip{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:8px; }
+  .single .ph-btn img{ width:100%; aspect-ratio:3/4; object-fit:cover; }
+  .diptych{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .diptych .ph-btn img,.strip .ph-btn img{ width:100%; aspect-ratio:4/5; object-fit:cover; }
+  .grid4{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .grid4 .ph-btn img{ width:100%; aspect-ratio:4/5; object-fit:cover; }
+  .ph-btn{ padding:0; border:0; background:none; cursor:zoom-in; display:block; overflow:hidden; }
+  .ph-btn img{ transition:opacity .3s ease; border-radius:2px; }
+  .ph-btn:hover img{ opacity:.88; }
+  .ph-btn:focus-visible{ outline:2px solid var(--ink); outline-offset:2px; }
+  .ph{ aspect-ratio:4/5; border:1px solid var(--line); background:#F0EEE8; border-radius:2px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px; color:var(--soft); }
+  .ph svg{ width:28px; height:28px; opacity:.5; } .ph span{ font-size:10px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; }
+  .vid{ width:100%; background:#000; aspect-ratio:9/12; border-radius:2px; overflow:hidden; }
+  .vid video{ width:100%; height:100%; object-fit:cover; }
+
+  footer{ margin-top:80px; padding:50px 0 90px; text-align:center; color:var(--soft); border-top:1px solid var(--ink); }
+  footer p{ font-size:11px; letter-spacing:.18em; text-transform:uppercase; margin:6px 0; }
+  footer .priv{ letter-spacing:.03em; text-transform:none; font-size:11px; opacity:.85; max-width:420px; margin:12px auto 0; }
+
+  .lb{ position:fixed; inset:0; background:rgba(12,11,9,.95); z-index:50; display:flex; align-items:center; justify-content:center; padding:24px; }
+  .lb[hidden]{ display:none; }
+  .lb img{ max-width:100%; max-height:100%; }
+  .lb-x{ position:absolute; top:18px; right:22px; width:44px; height:44px; border-radius:50%; border:0; background:rgba(255,255,255,.12); color:#fff; font-size:24px; cursor:pointer; }
+</style>
+
+<div id="cover"></div>
+<div class="wrap">
+  <p class="intro" id="intro"></p>
+  <section class="contents"><div class="c-lbl">Содержание</div><ol id="contents"></ol></section>
+  <main id="stages"></main>
+</div>
+<footer>
+  <p>Портфолио · 2026</p>
+  <p class="priv">Частная страница, закрыта от поисковиков. Ссылка передаётся адресно.</p>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Просмотр фото">
+  <button class="lb-x" id="lb-x" aria-label="Закрыть">&times;</button><img id="lb-img" alt="">
+</div>
+
+<script>
+  const PH='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.8"/><path d="M21 16l-5-5L5 21"/></svg>';
+  const ph=l=>'<div class="ph">'+PH+'<span>'+l+'</span></div>';
+  const imgBtn=src=>'<button class="ph-btn" data-full="'+src+'"><img src="'+src+'" alt="" loading="lazy" '+
+    'onerror="this.closest(&quot;.ph-btn&quot;).outerHTML=\''+ph('фото скоро').replace(/'/g,"\\'").replace(/"/g,'&quot;')+'\'"></button>';
+
+  function media(s){
+    if(s.video) return s.video.src
+      ? '<div class="vid"><video controls preload="metadata"'+(s.video.poster?' poster="'+s.video.poster+'"':'')+'><source src="'+s.video.src+'"></video></div>'
+      : '<div class="single">'+ph('видео')+'</div>';
+    if(s.pending) return '<div class="single">'+ph('фото с показа — скоро')+'</div>';
+    const p=s.photos||[];
+    if(!p.length) return '<div class="single">'+ph('фото')+'</div>';
+    if(s.milestone && p.length===1) return '<div class="bleed feature">'+imgBtn(p[0])+'</div>';
+    if(s.milestone && p.length===2) return '<div class="diptych">'+p.map(imgBtn).join('')+'</div>';
+    if(s.milestone && p.length>=3) return '<div class="bleed feature">'+imgBtn(p[0])+'</div><div class="strip">'+p.slice(1,4).map(imgBtn).join('')+'</div>';
+    if(p.length===2) return '<div class="diptych">'+p.map(imgBtn).join('')+'</div>';
+    if(p.length>=3) return '<div class="grid4">'+p.slice(0,4).map(imgBtn).join('')+'</div>';
+    return '<div class="single">'+imgBtn(p[0])+'</div>';
+  }
+
+  function render(){
+    const cv=document.getElementById('cover'); cv.className='cover';
+    const pos=profile.coverPos||'center top';
+    cv.innerHTML =
+      (profile.cover?'<img class="cover-img" style="object-position:'+pos+'" src="'+profile.cover+'" alt="" onerror="this.closest(&quot;.cover&quot;).classList.add(&quot;no-cover&quot;); this.remove();">':'')+
+      '<div class="cover-grad"></div>'+
+      '<div class="cover-inner">'+
+        '<div class="c-eyebrow">'+(profile.school||'Портфолио')+'</div>'+
+        '<h1>'+profile.name+'</h1>'+
+        '<div class="tag">'+profile.tagline+'</div>'+
+        '<div class="cdata"><span>'+profile.stats+'</span><span>'+profile.period+'</span></div>'+
+      '</div>';
+    if(!profile.cover) cv.classList.add('no-cover');
+
+    document.getElementById('intro').textContent=profile.intro||'';
+    document.getElementById('contents').innerHTML=stages.map(s=>
+      '<li><a href="#s'+s.n+'"><span class="c-n">'+s.n+'</span><span class="c-t">'+s.title+'</span><span class="c-d">'+s.date+'</span></a></li>').join('');
+
+    document.getElementById('stages').innerHTML=stages.map(s=>{
+      let tag=''; if(s.author)tag+='<span class="tagpill">авторская работа</span>'; if(s.pending)tag+='<span class="tagpill">скоро</span>';
+      return '<section class="stage'+(s.milestone?' milestone':'')+'" id="s'+s.n+'">'+
+        '<div class="s-num">'+s.n+'</div>'+
+        '<div class="s-meta"><span class="kind">'+s.kind+'</span><span class="date">'+s.date+'</span>'+tag+'</div>'+
+        '<h2>'+s.title+'</h2>'+(s.note?'<p class="note">'+s.note+'</p>':'')+
+        media(s)+'</section>';
+    }).join('');
+
+    const lb=document.getElementById('lb'),li=document.getElementById('lb-img');
+    const open=s=>{li.src=s;lb.hidden=false;document.getElementById('lb-x').focus();};
+    const close=()=>{lb.hidden=true;li.src='';};
+    document.querySelectorAll('.ph-btn').forEach(b=>b.addEventListener('click',()=>open(b.dataset.full)));
+    document.getElementById('lb-x').addEventListener('click',close);
+    lb.addEventListener('click',e=>{if(e.target===lb)close();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.hidden)close();});
+  }
+  render();
+</script>
