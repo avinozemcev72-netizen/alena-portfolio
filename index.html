@@ -86,7 +86,7 @@ const stages = [
   *{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
   @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation:none!important;transition:none!important;} }
-  body{ margin:0; background:var(--paper); color:var(--ink); overflow-x:clip;
+  body{ margin:0; background:var(--paper); color:var(--ink); overflow-x:hidden;
     font-family:"Archivo",system-ui,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased; }
   .wrap{ max-width:880px; margin:0 auto; padding:0 26px; }
   img{ display:block; }
@@ -128,10 +128,10 @@ const stages = [
 
   .bleed{ width:100%; }
   .feature{ margin:8px 0; }
-  .feature .ph-btn img{ width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top; border-radius:2px; }
+  .feature .ph-btn img{ width:100%; aspect-ratio:2/3; object-fit:cover; object-position:center top; border-radius:2px; }
   @media(min-width:640px){
-    .bleed{ width:100vw; position:relative; left:50%; margin-left:-50vw; overflow:hidden; }
-    .feature .ph-btn img{ aspect-ratio:unset; height:min(90vh,940px); object-position:center center; border-radius:0; }
+    .bleed{ width:100vw; position:relative; left:50%; margin-left:-50vw; }
+    .feature .ph-btn img{ aspect-ratio:unset; height:min(90vh,940px); object-position:center; border-radius:0; }
   }
   .strip{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:8px; }
   .single .ph-btn img{ width:100%; aspect-ratio:3/4; object-fit:cover; }
